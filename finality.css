@@ -3234,7 +3234,7 @@ body {
 
 .layout-desktop #itemDetailPage .tagline {
     position: fixed !important;
-    top: 27em !important;
+    top: 26.5em !important;
     left: 15em !important;
     text-align: left !important;
     margin: 0 !important;
@@ -3256,7 +3256,7 @@ body {
 
 .layout-desktop #itemDetailPage .trackSelections {
     position: fixed !important;
-    top: 43em !important;
+    top: 41.5em !important;
     left: calc(5em + 16.5em) !important;
     width: 34em !important;
     z-index: 20 !important;
@@ -3276,4 +3276,194 @@ body {
 }
 .layout-desktop #itemDetailPage .detailLogo {
     left: calc(var(--portraitCard-left, 5em) + var(--portraitCard-width, 15em) + 2.5em) !important;
+}
+
+/* Show info blocks under poster only in fullscreen mode, like detail-clamp-text */
+@media (min-width: 40em) {
+  .layout-desktop #itemDetailPage .itemMiscInfo.itemMiscInfo-primary {
+    position: fixed !important;
+    top: 44em !important;
+    left: 5em !important;
+    z-index: 12 !important;
+    display: block !important;
+    opacity: 1 !important;
+  }
+  .layout-desktop #itemDetailPage .detailsGroupItem.genresGroup {
+    position: fixed !important;
+    top: 60em !important;
+    left: 6.5em !important;
+    z-index: 12 !important;
+    display: block !important;
+    opacity: 1 !important;
+  }
+  .layout-desktop #itemDetailPage .itemExternalLinks.focuscontainer-x {
+    position: fixed !important;
+    top: calc(40em + 13.5em + 8em) !important;
+    width: 13.5em !important;
+    z-index: 12 !important;
+    display: block !important;
+    opacity: 1 !important;
+  }
+}
+@media (max-width: 40em) {
+  .layout-desktop #itemDetailPage .itemMiscInfo.itemMiscInfo-primary,
+  .layout-desktop #itemDetailPage .detailsGroupItem.genresGroup,
+  .layout-desktop #itemDetailPage .itemExternalLinks.focuscontainer-x {
+    display: none !important;
+  }
+}
+
+/* Center itemExternalLinks in the middle of overview detail-clamp-text */
+@media (min-width: 40em) {
+  .layout-desktop #itemDetailPage .itemExternalLinks.focuscontainer-x {
+    position: fixed !important;
+    top: 58em !important; /* match .detail-clamp-text top */
+    left: 50% !important;
+    width: 32em !important;
+    transform: translateX(-50%) !important;
+    z-index: 13 !important;
+    display: flex !important;
+    justify-content: center !important;
+    opacity: 1 !important;
+  }
+  /* Lay out itemMiscInfo-primary horizontally and center above mainDetailButtons */
+  .layout-desktop #itemDetailPage .itemMiscInfo.itemMiscInfo-primary {
+    position: fixed !important;
+    top: 50.5em !important; /* just above mainDetailButtons */
+    left: 42em !important;
+    transform: translateX(-50%) !important;
+    z-index: 12 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 1.5em !important;
+    opacity: 1 !important;
+  }
+}
+
+@media (min-width: 40em) {
+  .layout-desktop #itemDetailPage .detailsGroupItem.genresGroup {
+    transform: scale(0.85);
+    font-size: 0.95em !important;
+    transform-origin: left top;
+  }
+  .layout-desktop #itemDetailPage .itemMiscInfo.itemMiscInfo-primary {
+    transform: scale(0.85);
+    font-size: 0.95em !important;
+    transform-origin: left top;
+  }
+}
+
+.layout-desktop #itemDetailPage .itemExternalLinks.focuscontainer-x {
+  display: none !important;
+}
+
+/* Hide related movies column by default */
+.layout-desktop #similarCollapsible .scrollSlider.focuscontainer-x.itemsContainer.similarContent.animatedScrollX {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+
+/* Reveal on parent hover (button or container) */
+.layout-desktop #similarCollapsible:hover .scrollSlider.focuscontainer-x.itemsContainer.similarContent.animatedScrollX {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s;
+}
+
+/* Show pseudo-button on the side */
+.layout-desktop #similarCollapsible::after {
+  content: '< RELATED MOVIES';
+  position: fixed;
+  top: 50%;
+  right: 0.5em;
+  background: rgba(20,20,20,0.92);
+  color: #fff;
+  font-size: 1.25em;
+  font-weight: 600;
+  padding: 1em 2em 1em 1.5em;
+  border-radius: 1.5em 0 0 1.5em;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.18);
+  cursor: pointer;
+  z-index: 2000;
+  transition: background 0.2s;
+}
+.layout-desktop #similarCollapsible::after:hover {
+  background: #e52d27;
+  color: #fff;
+}
+
+/* When hovering the button or the column, show the column */
+.layout-desktop #similarCollapsible:hover .scrollSlider.focuscontainer-x.itemsContainer.similarContent.animatedScrollX,
+.layout-desktop #similarCollapsible:focus-within .scrollSlider.focuscontainer-x.itemsContainer.similarContent.animatedScrollX,
+.layout-desktop #similarCollapsible::after:hover ~ .scrollSlider.focuscontainer-x.itemsContainer.similarContent.animatedScrollX {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s;
+}
+
+/* Related Movies vertical button with material chevron_left icon, no background, vertical text */
+.layout-desktop #similarCollapsible {
+  position: relative;
+}
+.layout-desktop #similarCollapsible::before {
+  content: '\e5cb'; /* material-icons chevron_left */
+  font-family: 'Material Icons';
+  font-size: 2em;
+  color: #fff;
+  display: block;
+  text-align: center;
+  margin-bottom: 0.2em;
+  position: fixed;
+  top: 50%;
+  right: 1.2em;
+  transform: translateY(-60%);
+  z-index: 2001;
+  pointer-events: auto;
+}
+.layout-desktop #similarCollapsible::after {
+  content: 'R\A\T\E\L\A\T\E\D\ \M\O\V\I\E\S';
+  font-family: 'Cantarell', sans-serif;
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #fff;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: block;
+  position: fixed;
+  top: 50%;
+  right: 0.5em;
+  transform: translateY(-50%);
+  z-index: 2000;
+  background: none;
+  padding: 0;
+  box-shadow: none;
+  text-align: center;
+  line-height: 1.1em;
+  pointer-events: auto;
+  white-space: pre;
+}
+.layout-desktop #similarCollapsible::after:hover,
+.layout-desktop #similarCollapsible::before:hover {
+  color: #e52d27;
+  cursor: pointer;
+}
+
+.layout-desktop #similarCollapsible::after {
+  content: '';
+}
+
+/* Show related movies column when arrow button is hovered */
+.layout-desktop #similarCollapsible .scrollSlider.focuscontainer-x.itemsContainer.similarContent.animatedScrollX {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+.layout-desktop #similarCollapsible::before:hover ~ .scrollSlider.focuscontainer-x.itemsContainer.similarContent.animatedScrollX,
+.layout-desktop #similarCollapsible:hover .scrollSlider.focuscontainer-x.itemsContainer.similarContent.animatedScrollX {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.5s;
 }
