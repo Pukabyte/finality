@@ -3178,3 +3178,24 @@ body {
 .noBackdropTransparency .detailPageSecondaryContainer {
 	background-color: transparent;
 }
+
+.transparent-detail-page #itemDetailPage,
+.transparent-detail-page .detailPagePrimaryContainer,
+.transparent-detail-page .detailPagePrimaryContent,
+.transparent-detail-page .detailImageContainer,
+.transparent-detail-page .mainDetailButtons,
+.transparent-detail-page .verticalSection.detailVerticalSection,
+.transparent-detail-page .collectionItems,
+.transparent-detail-page .itemMiscInfo,
+.transparent-detail-page .itemName,
+.transparent-detail-page .tagline,
+.transparent-detail-page .itemExternalLinks,
+.transparent-detail-page .recordingFields,
+.transparent-detail-page .trackSelections,
+.transparent-detail-page .overview-controls,
+.transparent-detail-page .dialog,
+.transparent-detail-page .upNextContainer {
+    opacity: 0.1 !important;
+    pointer-events: none !important;
+    transition: opacity 0.4s;
+}
