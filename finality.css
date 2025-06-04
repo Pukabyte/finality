@@ -1119,16 +1119,43 @@ progress::-webkit-progress-value {
 	left: 59em;
 }
 
-.layout-desktop .mainDetailButtons.focuscontainer-x {
-	position: fixed;
-	top: 35.5em;
-	left: 35.5em;
-	z-index: 50;
-	width: 36.5em;
-	justify-content: space-between;
-	margin: 0;
-	height: 1.5em;
-	opacity: 1;
+/* Modern, grouped mainDetailButtons, positioned to bottom of portraitCard on detail page */
+.layout-desktop #itemDetailPage .mainDetailButtons.focuscontainer-x {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 1.2em !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    background: rgba(20, 20, 20, 0.85) !important;
+    border-radius: 1.5em !important;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12), 0 1.5px 4px 0 rgba(0,0,0,0.10) !important;
+    padding: 0.7em 2em !important;
+    position: fixed !important;
+    top: calc(30em + 6.5em) !important; /* portraitCard top + height */
+    left: 16em !important; /* same as portraitCard */
+    width: auto !important;
+    z-index: 100 !important;
+    margin: 0 !important;
+    height: auto !important;
+    opacity: 1 !important;
+}
+
+.layout-desktop #itemDetailPage .mainDetailButtons.focuscontainer-x .button-flat {
+    border-radius: 1em !important;
+    background: linear-gradient(90deg, #e52d27 0%, #b31217 100%) !important;
+    color: #fff !important;
+    font-weight: 600 !important;
+    font-size: 1.1em !important;
+    box-shadow: 0 2px 8px 0 rgba(229,45,39,0.12) !important;
+    padding: 0.6em 1.6em !important;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s !important;
+    border: none !important;
+}
+
+.layout-desktop #itemDetailPage .mainDetailButtons.focuscontainer-x .button-flat:hover {
+    background: linear-gradient(90deg, #b31217 0%, #e52d27 100%) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 16px 0 rgba(229,45,39,0.18) !important;
 }
 
 .layout-desktop .mainDetailButtons.focuscontainer-x:hover {
@@ -3179,117 +3206,74 @@ body {
 	background-color: transparent;
 }
 
-/* --- Simplify Item Detail Page --- */
-
-/* Hide tagline, external links, item tags, secondary info, and extra sections */
-.layout-desktop #itemDetailPage .tagline,
-.layout-desktop .itemExternalLinks.focuscontainer-x,
-.itemTags,
-.layout-desktop .itemMiscInfo.itemMiscInfo-secondary,
-.layout-desktop #itemDetailPage .nextUpSection,
-.layout-desktop #itemDetailPage .verticalSection.detailVerticalSection.moreFromSeasonSection.emby-scroller-container,
-.layout-desktop #itemDetailPage .verticalSection.detailVerticalSection.moreFromArtistSection.emby-scroller-container,
-.layout-desktop #itemDetailPage .verticalSection.detailVerticalSection.verticalSection-extrabottompadding.emby-scroller-container,
-.layout-desktop #itemDetailPage .verticalSection.detailVerticalSection.moreFromSeasonSection,
-.layout-desktop #itemDetailPage .verticalSection.detailVerticalSection.moreFromArtistSection,
-.layout-desktop #itemDetailPage .verticalSection.detailVerticalSection.verticalSection-extrabottompadding,
-.layout-desktop #itemDetailPage .sectionTitle.sectionTitle-cards.padded-right,
-.layout-desktop #itemDetailPage .sectionTitle.sectionTitle-cards.padded-left,
-.layout-desktop #itemDetailPage .parentName.focuscontainer-x,
-.layout-desktop #itemDetailPage .itemName.infoText.originalTitle,
-.layout-desktop #itemDetailPage .itemName.infoText.subtitle,
-.layout-desktop #itemDetailPage .itemMiscInfo.itemMiscInfo-primary .mediaInfoItem.mediaInfoCriticRating.mediaInfoCriticRatingRotten,
-.layout-desktop #itemDetailPage .itemMiscInfo.itemMiscInfo-primary .mediaInfoItem,
-.layout-desktop #itemDetailPage .itemMiscInfo.itemMiscInfo-primary .material-icons.starIcon.star,
-.layout-desktop #itemDetailPage .itemMiscInfo.itemMiscInfo-primary {
-    display: none !important;
+/* Scale down portraitCard and detailLogo, align and space them on detail page */
+.layout-desktop #itemDetailPage .detailImageContainer .card.portraitCard {
+    width: 13.5em !important;
+    height: auto;
+    top: 40em !important;
+    left: 5em !important;
+    position: fixed;
+    z-index: 3;
 }
 
-/* Hide 'More Like This', 'Similar', 'Cast & Crew', 'Specials', 'Scenes', 'Bio Movies', etc. */
-#similarCollapsible,
-#castCollapsible,
-#specialsCollapsible,
-#scenesCollapsible,
-#childrenCollapsible,
-#childrenContent .itemsContainer.padded-right.vertical-wrap [data-type="Episode"],
-#childrenContent .itemsContainer.padded-right.vertical-wrap [data-type="Series"],
-#seriesScheduleSection {
-    display: none !important;
+.layout-desktop #itemDetailPage .detailLogo {
+    width: 33.95em !important;
+    height: 9.5em !important;
+    top: 32em !important;
+    left: calc(5em + 15em + 3em) !important;
+    position: fixed;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+    display: block;
+    filter: drop-shadow(15px 14px 4px rgba(2, 2, 2, 0.65));
+    max-width: 15em !important;
+    max-height: 7em !important;
+    object-fit: contain !important;
 }
 
-/* Simplify poster, title, description, and main action buttons layout */
-.layout-desktop #itemDetailPage .detailImageContainer .card {
-    position: static !important;
-    margin: 2em auto 1em auto !important;
-    float: none !important;
-    display: block !important;
-    left: unset !important;
-    top: unset !important;
-    width: 18em !important;
-    border: 1px solid #eee !important;
-    border-radius: 0.5em !important;
-    box-shadow: none !important;
-}
-
-.layout-desktop #itemDetailPage .itemName.parentNameLast {
-    position: static !important;
-    font-size: 2em !important;
-    text-align: center !important;
-    margin: 0.5em auto 0.5em auto !important;
-    left: unset !important;
-    top: unset !important;
-    width: auto !important;
-    font-weight: 700 !important;
-    font-family: inherit !important;
-    overflow: visible !important;
-    text-overflow: unset !important;
-}
-
-.layout-desktop .detailPagePrimaryContent {
-    position: static !important;
-    width: 60vw !important;
-    margin: 0 auto 2em auto !important;
-    left: unset !important;
-    top: unset !important;
-    font-size: 1.1em !important;
-    text-align: center !important;
-    z-index: unset !important;
-}
-
-.layout-desktop .mainDetailButtons.focuscontainer-x {
-    position: static !important;
-    width: auto !important;
-    margin: 2em auto 2em auto !important;
-    left: unset !important;
-    top: unset !important;
-    display: flex !important;
-    justify-content: center !important;
-    gap: 2em !important;
-    opacity: 1 !important;
-}
-
-/* Remove extra drop-shadows, gradients, and hover effects from detail buttons */
-.layout-desktop .detailButton-icon {
-    filter: none !important;
-    box-shadow: none !important;
-    transition: none !important;
+.layout-desktop #itemDetailPage .tagline {
+    position: fixed !important;
+    top: 27em !important;
+    left: 15em !important;
+    text-align: left !important;
+    margin: 0 !important;
+    font-size: 1.5em !important;
+    font-weight: 600 !important;
     background: none !important;
-    font-size: 1.2em !important;
-    padding: 0.5em 1em !important;
-    margin: 0 0.5em !important;
+    z-index: 21 !important;
 }
 
-.layout-desktop .detailButton-icon:hover {
-    transform: none !important;
-    background: #eee !important;
-    color: #c20000 !important;
+.layout-desktop #itemDetailPage .detail-clamp-text {
+    position: fixed !important;
+    top: 53em !important;
+    width: 70em !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+    background: none !important;
+    z-index: 10 !important;
 }
 
-/* Use a consistent, simple font and background */
-.layout-desktop #itemDetailPage,
-.layout-desktop .detailPagePrimaryContainer,
-.layout-desktop .detailPagePrimaryContent {
-    font-family: "Cantarell", sans-serif !important;
-    background: #fff !important;
-    color: #222 !important;
+.layout-desktop #itemDetailPage .trackSelections {
+    position: fixed !important;
+    top: 43em !important;
+    left: calc(5em + 16.5em) !important;
+    width: 34em !important;
+    z-index: 20 !important;
+    background: none !important;
+    margin: 0 !important;
+    padding: 0.5em 0 0 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.7em !important;
+    box-shadow: none !important;
+}
+
+/* Anchor logo to the right edge of the portraitCard with a fixed gap using CSS variables */
+.layout-desktop #itemDetailPage .detailImageContainer .card.portraitCard {
+    --portraitCard-left: 5em;
+    --portraitCard-width: 13.5em;
+}
+.layout-desktop #itemDetailPage .detailLogo {
+    left: calc(var(--portraitCard-left, 5em) + var(--portraitCard-width, 15em) + 2.5em) !important;
 }
