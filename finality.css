@@ -3178,3 +3178,118 @@ body {
 .noBackdropTransparency .detailPageSecondaryContainer {
 	background-color: transparent;
 }
+
+/* --- Simplify Item Detail Page --- */
+
+/* Hide tagline, external links, item tags, secondary info, and extra sections */
+.layout-desktop #itemDetailPage .tagline,
+.layout-desktop .itemExternalLinks.focuscontainer-x,
+.itemTags,
+.layout-desktop .itemMiscInfo.itemMiscInfo-secondary,
+.layout-desktop #itemDetailPage .nextUpSection,
+.layout-desktop #itemDetailPage .verticalSection.detailVerticalSection.moreFromSeasonSection.emby-scroller-container,
+.layout-desktop #itemDetailPage .verticalSection.detailVerticalSection.moreFromArtistSection.emby-scroller-container,
+.layout-desktop #itemDetailPage .verticalSection.detailVerticalSection.verticalSection-extrabottompadding.emby-scroller-container,
+.layout-desktop #itemDetailPage .verticalSection.detailVerticalSection.moreFromSeasonSection,
+.layout-desktop #itemDetailPage .verticalSection.detailVerticalSection.moreFromArtistSection,
+.layout-desktop #itemDetailPage .verticalSection.detailVerticalSection.verticalSection-extrabottompadding,
+.layout-desktop #itemDetailPage .sectionTitle.sectionTitle-cards.padded-right,
+.layout-desktop #itemDetailPage .sectionTitle.sectionTitle-cards.padded-left,
+.layout-desktop #itemDetailPage .parentName.focuscontainer-x,
+.layout-desktop #itemDetailPage .itemName.infoText.originalTitle,
+.layout-desktop #itemDetailPage .itemName.infoText.subtitle,
+.layout-desktop #itemDetailPage .itemMiscInfo.itemMiscInfo-primary .mediaInfoItem.mediaInfoCriticRating.mediaInfoCriticRatingRotten,
+.layout-desktop #itemDetailPage .itemMiscInfo.itemMiscInfo-primary .mediaInfoItem,
+.layout-desktop #itemDetailPage .itemMiscInfo.itemMiscInfo-primary .material-icons.starIcon.star,
+.layout-desktop #itemDetailPage .itemMiscInfo.itemMiscInfo-primary {
+    display: none !important;
+}
+
+/* Hide 'More Like This', 'Similar', 'Cast & Crew', 'Specials', 'Scenes', 'Bio Movies', etc. */
+#similarCollapsible,
+#castCollapsible,
+#specialsCollapsible,
+#scenesCollapsible,
+#childrenCollapsible,
+#childrenContent .itemsContainer.padded-right.vertical-wrap [data-type="Episode"],
+#childrenContent .itemsContainer.padded-right.vertical-wrap [data-type="Series"],
+#seriesScheduleSection {
+    display: none !important;
+}
+
+/* Simplify poster, title, description, and main action buttons layout */
+.layout-desktop #itemDetailPage .detailImageContainer .card {
+    position: static !important;
+    margin: 2em auto 1em auto !important;
+    float: none !important;
+    display: block !important;
+    left: unset !important;
+    top: unset !important;
+    width: 18em !important;
+    border: 1px solid #eee !important;
+    border-radius: 0.5em !important;
+    box-shadow: none !important;
+}
+
+.layout-desktop #itemDetailPage .itemName.parentNameLast {
+    position: static !important;
+    font-size: 2em !important;
+    text-align: center !important;
+    margin: 0.5em auto 0.5em auto !important;
+    left: unset !important;
+    top: unset !important;
+    width: auto !important;
+    font-weight: 700 !important;
+    font-family: inherit !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+}
+
+.layout-desktop .detailPagePrimaryContent {
+    position: static !important;
+    width: 60vw !important;
+    margin: 0 auto 2em auto !important;
+    left: unset !important;
+    top: unset !important;
+    font-size: 1.1em !important;
+    text-align: center !important;
+    z-index: unset !important;
+}
+
+.layout-desktop .mainDetailButtons.focuscontainer-x {
+    position: static !important;
+    width: auto !important;
+    margin: 2em auto 2em auto !important;
+    left: unset !important;
+    top: unset !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 2em !important;
+    opacity: 1 !important;
+}
+
+/* Remove extra drop-shadows, gradients, and hover effects from detail buttons */
+.layout-desktop .detailButton-icon {
+    filter: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+    background: none !important;
+    font-size: 1.2em !important;
+    padding: 0.5em 1em !important;
+    margin: 0 0.5em !important;
+}
+
+.layout-desktop .detailButton-icon:hover {
+    transform: none !important;
+    background: #eee !important;
+    color: #c20000 !important;
+}
+
+/* Use a consistent, simple font and background */
+.layout-desktop #itemDetailPage,
+.layout-desktop .detailPagePrimaryContainer,
+.layout-desktop .detailPagePrimaryContent {
+    font-family: "Cantarell", sans-serif !important;
+    background: #fff !important;
+    color: #222 !important;
+}
