@@ -662,7 +662,7 @@ progress::-webkit-progress-value {
 
 /* Hide My Media text on desktop */
 .layout-desktop #homeTab .section0 .sectionTitle.sectionTitle-cards.padded-left {
-	display: none;
+    /* display: none; */
 }
 
 /* My Media Card size */
@@ -804,7 +804,7 @@ progress::-webkit-progress-value {
 
 /* hide Live TV text */
 .sectionTitleContainer.sectionTitleContainer-cards.padded-left>.sectionTitle.sectionTitle-cards {
-	display: none;
+    /* display: none; */
 }
 
 /* hide Live TV shortcuts */
