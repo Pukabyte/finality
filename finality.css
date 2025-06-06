@@ -1690,8 +1690,8 @@ body {
 
 .layout-desktop #itemDetailPage .itemName.infoText.subtitle.focuscontainer-x {
 	position: fixed;
-	top: 21.25em;
-	left: 37.6em;
+	top: 19em;
+	left: 15.5em; /* Changed from 37.6em to move left by 20em */
 	white-space: nowrap;
 	font-size: 2em;
 	font-family: inherit;
@@ -1699,7 +1699,7 @@ body {
 	text-align: left;
 	overflow: hidden;
 	height: 1.5em;
-	transform: translatex(-50%);
+	transform: translatex(-50%) scale(0.5); /* Added scale(0.5) to reduce size by 50% */
 }
 
 .layout-desktop #itemDetailPage .itemName.infoText.subtitle.focuscontainer-x::before {
